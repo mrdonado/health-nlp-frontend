@@ -1,3 +1,8 @@
 <h1>
   {{title}}
 </h1>
+<ul>
+  <li class="text" *ngFor="let item of analysis | async">
+    {{item.$value}} {{item.message}} - {{item.source}}
+  </li>
+</ul>
