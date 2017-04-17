@@ -3,8 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
+import { RouterModule, Routes } from '@angular/router';
 
+// Components
 import { AppComponent } from './app.component';
+import { NotFoundPageComponent } from './main-components/not-found-page/not-found-page.component';
+import { DemoComponent } from './main-components/demo/demo.component';
+import { AboutComponent } from './main-components/about/about.component';
 
 // Must export the config
 export const firebaseConfig = {
@@ -16,15 +21,25 @@ export const firebaseConfig = {
   messagingSenderId: '329948122061'
 };
 
+const appRoutes: Routes = [
+  { path: '', component: DemoComponent },
+  { path: 'about', component: AboutComponent },
+  { path: '**', component: NotFoundPageComponent }
+];
+
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundPageComponent,
+    DemoComponent,
+    AboutComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

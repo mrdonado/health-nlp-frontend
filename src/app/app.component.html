@@ -1,8 +1,7 @@
-<h1>
-  {{title}}
-</h1>
-<ul>
-  <li class="text" *ngFor="let item of analysis | async">
-    {{item.$value}} {{item.message}} - {{item.source}}
-  </li>
-</ul>
+<div id="app-wrapper">
+  <nav>
+    <a routerLink="/" routerLinkActive="active">Demo</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
