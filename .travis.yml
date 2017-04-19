@@ -26,4 +26,4 @@ before_script:
 
 script: ng test --watch=false --code-coverage
 
-after_success: 'npm run coveralls'
+after_success: cat ./coverage/lcov.info | node node_modules/.bin/coveralls
