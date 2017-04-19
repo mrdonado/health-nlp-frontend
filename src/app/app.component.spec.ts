@@ -20,6 +20,7 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
+
   /*
   // Default tests. Left here for future reference
   it(`should have as title 'app works!'`, async(() => {
