@@ -30,7 +30,7 @@
   "devDependencies": {
     "@angular/cli": "1.0.0",
     "@angular/compiler-cli": "^4.0.2",
-    "@types/jasmine": "2.5.38",
+    "@types/jasmine": "2.5.47",
     "@types/node": "^6.0.42",
     "codelyzer": "~2.1.1",
     "jasmine-core": "2.5.2",
@@ -42,7 +42,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.0",
     "protractor": "~5.1.0",
     "ts-node": "3.0.2",
-    "tslint": "^5.1.0",
+    "tslint": "5.1.0",
     "typescript": "~2.2.2"
   }
 }
