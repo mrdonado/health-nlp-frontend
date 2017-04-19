@@ -2,4 +2,5 @@
   <li class="text" *ngFor="let item of analysis | async">
     {{item.$value}} {{item.message}} - {{item.source}}
   </li>
+  <button (click)="moreResults()">more!</button>
 </ul>

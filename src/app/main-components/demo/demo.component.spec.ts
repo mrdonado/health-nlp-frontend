@@ -7,13 +7,19 @@ import { DebugElement, Injectable } from '@angular/core';
 
 import { DemoComponent } from './demo.component';
 
-const AngularFireMock = {
-  database: {
-    list: () => { }
-  }
-};
 
 describe('DemoComponent', () => {
+
+  let _collection = 'unknown';
+
+  const AngularFireMock = {
+    database: {
+      list: (collection, options) => {
+        _collection = collection;
+      }
+    }
+  };
+
   let component: DemoComponent;
   let fixture: ComponentFixture<DemoComponent>;
 
@@ -39,4 +45,16 @@ describe('DemoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should retrieve a collection /analysis', () => {
+    expect(_collection).toEqual('/analysis');
+  });
+
+  it('should increase the query limit after running moreResults', ()=>{
+    expect(component.queryLimit).toEqual(5);
+    component.moreResults();
+    expect(component.queryLimit).toEqual(10);
+
+  });
+
 });
