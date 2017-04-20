@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { NotFoundPageComponent } from './main-components/not-found-page/not-found-page.component';
 import { DemoComponent } from './main-components/demo/demo.component';
 import { AboutComponent } from './main-components/about/about.component';
+import { ReversePipe } from './custom-pipes/reverse.pipe';
 
 // Must export the config
 export const firebaseConfig = {
@@ -27,6 +28,8 @@ const appRoutes: Routes = [
   { path: '**', component: NotFoundPageComponent }
 ];
 
+
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ const appRoutes: Routes = [
     AppComponent,
     NotFoundPageComponent,
     DemoComponent,
-    AboutComponent
+    AboutComponent,
+    ReversePipe
   ],
   providers: [],
   bootstrap: [AppComponent]
