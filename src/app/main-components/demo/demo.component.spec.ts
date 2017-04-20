@@ -4,7 +4,7 @@ import { AngularFire } from 'angularfire2';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement, Injectable } from '@angular/core';
-
+import { ReversePipe } from '../../custom-pipes/reverse.pipe';
 import { DemoComponent } from './demo.component';
 
 
@@ -25,7 +25,7 @@ describe('DemoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DemoComponent],
+      declarations: [DemoComponent, ReversePipe],
       providers: [
         {
           provide: AngularFire,
@@ -50,11 +50,10 @@ describe('DemoComponent', () => {
     expect(_collection).toEqual('/analysis');
   });
 
-  it('should increase the query limit after running moreResults', ()=>{
-    expect(component.queryLimit).toEqual(5);
+  it('should increase the page size after running moreResults', () => {
+    expect(component.pageSize.getValue()).toEqual(5);
     component.moreResults();
-    expect(component.queryLimit).toEqual(10);
-
+    expect(component.pageSize.getValue()).toEqual(10);
   });
 
 });

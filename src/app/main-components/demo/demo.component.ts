@@ -2,6 +2,8 @@ import { Subject } from 'rxjs/Rx';
 import { QueryList } from '@angular/core/core';
 import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { BehaviorSubject } from 'rxjs';
+
 
 @Component({
   selector: 'app-demo',
@@ -11,27 +13,28 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 export class DemoComponent implements OnInit {
 
   analysis: FirebaseListObservable<any[]>;
-  queryLimit: number;
-  querySubject: Subject<number>;
+  pageSize: BehaviorSubject<any>;
 
   constructor(af: AngularFire) {
-    this.queryLimit = 5;
-    this.querySubject = new Subject();
+
+    this.pageSize = new BehaviorSubject(5);
+
     this.analysis = af.database.list('/analysis',
       {
         query: {
-          limitToLast: this.querySubject,
-          orderByChild: 'created_at'
+          limitToLast: this.pageSize,
+          orderByKey: true
         }
       });
+
   }
 
   ngOnInit() {
+
   }
 
   moreResults() {
-    this.queryLimit += 5;
-    this.querySubject.next(this.queryLimit);
+    this.pageSize.next(this.pageSize.getValue() + 5);
   }
 
 }
