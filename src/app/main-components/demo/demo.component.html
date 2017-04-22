@@ -1,6 +1,10 @@
-<ul>
-  <li class="text" *ngFor="let item of analysis | async | reverse">
-    {{item.$value}} {{item.message}} - {{item.source}}
-  </li>
-  <button (click)="moreResults()">more!</button>
-</ul>
+<div id="demo-page-wrapper">
+  <div id="analysis-section">
+    <ul id="analysis-list">
+      <li class="text" *ngFor="let item of analysis | async | reverse">
+        {{item.$value}} {{item.message}} - {{item.source}}
+      </li>
+      <button (click)="moreResults()">more!</button>
+    </ul>
+  </div>
+</div>
