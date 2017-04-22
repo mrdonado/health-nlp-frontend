@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+$text-color: #3f404d;
+
 @font-face{
   font-family: 'raleway-light';
   src: url('assets/fonts/Raleway-Light.ttf');
@@ -11,4 +13,5 @@
 
 html{
   font-family: 'raleway-light', 'Arial Narrow', Arial, sans-serif;
+  color: $text-color;
 }

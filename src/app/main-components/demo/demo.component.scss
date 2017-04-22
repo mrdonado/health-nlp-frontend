@@ -1,3 +1,28 @@
-ul#analysis-list{
-  
+$white: #ffffff;
+$white-shadow: #e7e7e7;
+$white-gradient: #f8f8ff;
+$gray-border: #ebebeb;
+ul#analysis-list {
+    list-style: none;
+    max-width: 350px;
+    margin: auto;
+    padding: 0;
+    box-shadow: 0px 0px 10px 0px $white-shadow;
+    li {
+        padding: 5px;
+        border-top: 1px solid $gray-border;
+        height: 5em; // Gradient
+        background: $white;
+        background: -moz-linear-gradient(top, $white 0%, $white-gradient 100%);
+        background: -webkit-linear-gradient(top, $white 0%, $white-gradient 100%);
+        background: linear-gradient(to bottom, $white 0%, $white-gradient 100%);
+        &.more-results-btn {
+            font-family: 'raleway-bold';
+            font-size: 150%;
+            height: 2em;
+            text-align: center;
+            line-height: 2em;
+            cursor: pointer;
+        }
+    }
 }
