@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face{
+  font-family: 'raleway-light';
+  src: url('assets/fonts/Raleway-Light.ttf');
+}
+
+@font-face{
+  font-family: 'raleway-bold';
+  src: url('assets/fonts/Raleway-ExtraBold.ttf');
+}
+
+html{
+  font-family: 'raleway-light', 'Arial Narrow', Arial, sans-serif;
+}
