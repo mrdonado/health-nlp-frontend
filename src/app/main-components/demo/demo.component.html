@@ -1,10 +1,38 @@
 <div id="demo-page-wrapper">
   <div id="analysis-section">
     <ul id="analysis-list">
-      <li class="text" *ngFor="let item of analysis | async | reverse">
-        {{item.$value}} {{item.message}} - {{item.source}}
+      <!-- Analysis Item -->
+      <li class="analysis-item" *ngFor="let item of analysis | async | reverse">
+        <div class="message">
+          <span class="message-text">{{item.message}}</span>
+          <span class="source" [ngClass]="item.source">{{item.source}}</span>
+          <span class="message-date">{{item.created_at | date:'medium'}}</span>
+        </div>
+        <div class="user-information">
+          @{{item.user_name}} - {{item.user_description}} -
+          <span class="heath-relation" [ngClass]="{'related': item.analysis.health_related}">
+            health-related: {{item.analysis.health_related}}
+            </span>
+        </div>
+        <div class="analysis-information">
+          <span class="query">
+            {{item.query}}
+          </span>
+          <span class="user-profile">
+            {{item.analysis.profile}}
+          </span>
+          <span class="problem">
+            {{item.analysis.problem}}
+          </span>
+          <span class="solution">
+            {{item.analysis.solution}}
+          </span>
+        </div>
       </li>
-      <li class="more-results-btn" (click)="moreResults()">Show more</li>
+      <!-- End of Analysis Item -->
+      <li class="more-results-btn" (click)="moreResults()">
+        Show more
+      </li>
     </ul>
   </div>
 </div>

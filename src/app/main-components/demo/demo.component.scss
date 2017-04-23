@@ -5,6 +5,7 @@ $gray-border: #ebebeb;
 $green-light: #9ed4c7;
 $green-gradient: #73ac78;
 $blue-text: #3f2a72;
+
 @mixin light-linear-gradient($start-color, $end-color) {
     background: $start-color;
     background: -moz-linear-gradient(top, $start-color 0%, $end-color 100%);
@@ -19,18 +20,21 @@ ul#analysis-list {
     padding: 0;
     border-radius: 3px;
     box-shadow: 0px 0px 10px 0px $white-shadow;
+
     li {
         @include light-linear-gradient($white, $white-gradient);
         padding: 5px;
         border-top: 1px solid $gray-border;
-        height: 5em;
+        min-height: 5em;
         border-radius: 3px;
+
         &.more-results-btn {
             @include light-linear-gradient($green-light, $green-gradient);
             text-transform: uppercase;
             color: $white-gradient;
             font-size: 150%;
-            height: 2em;
+            min-height: 2em;
+            max-height: 2em;
             text-align: center;
             line-height: 2em;
             cursor: pointer;
