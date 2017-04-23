@@ -3,23 +3,28 @@
     <ul id="analysis-list">
       <!-- Analysis Item -->
       <li class="analysis-item" *ngFor="let item of analysis | async | reverse">
+        <span class="message-date">{{item.created_at | date:'medium'}}</span>
         <div class="message">
           <span class="message-text">{{item.message}}</span>
           <span class="source" [ngClass]="item.source">{{item.source}}</span>
-          <span class="message-date">{{item.created_at | date:'medium'}}</span>
         </div>
         <div class="user-information">
-          @{{item.user_name}} - {{item.user_description}} -
-          <span class="heath-relation" [ngClass]="{'related': item.analysis.health_related}">
-            health-related: {{item.analysis.health_related}}
+          <span class="name-and-description">
+            @{{item.user_name}} <span class="description">{{item.user_description}}</span>
+          </span>
+
+        </div>
+        <div class="user-analysis">
+          <span class="user-profile">
+            User analysis: 
+            <span class="health-relation" [ngClass]="{'positive': item.analysis.health_related}">
+              {{item.analysis.health_related ? item.analysis.profile : 'not health related'}}
             </span>
+          </span>
         </div>
         <div class="analysis-information">
           <span class="query">
             {{item.query}}
-          </span>
-          <span class="user-profile">
-            {{item.analysis.profile}}
           </span>
           <span class="problem">
             {{item.analysis.problem}}
