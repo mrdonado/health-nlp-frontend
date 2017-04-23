@@ -3,33 +3,34 @@
     <ul id="analysis-list">
       <!-- Analysis Item -->
       <li class="analysis-item" *ngFor="let item of analysis | async | reverse">
-        <span class="message-date">{{item.created_at | date:'medium'}}</span>
-        <div class="message">
-          <span class="message-text">{{item.message}}</span>
-          <span class="source" [ngClass]="item.source">{{item.source}}</span>
-        </div>
+        <i class="source" [ngClass]="item.source">
+        </i>
+        <span class="date-and-query">{{item.source}} - {{item.created_at | date:'medium'}} - Query: "{{item.query}}"
+        </span>
         <div class="user-information">
           <span class="name-and-description">
-            @{{item.user_name}} <span class="description">{{item.user_description}}</span>
+            @{{item.user_name}}:
+            <span class="description">{{item.user_description}}</span>
           </span>
-
+        </div>
+        <div class="message">
+          &ldquo;{{item.message}}&bdquo;
         </div>
         <div class="user-analysis">
           <span class="user-profile">
-            User analysis: 
+            <span class="mini-header">User analysis: </span>
             <span class="health-relation" [ngClass]="{'positive': item.analysis.health_related}">
               {{item.analysis.health_related ? item.analysis.profile : 'not health related'}}
             </span>
           </span>
         </div>
         <div class="analysis-information">
-          <span class="query">
-            {{item.query}}
-          </span>
           <span class="problem">
+            <span class="mini-header">Problem</span>
             {{item.analysis.problem}}
           </span>
           <span class="solution">
+            <span class="mini-header">Solution</span>
             {{item.analysis.solution}}
           </span>
         </div>

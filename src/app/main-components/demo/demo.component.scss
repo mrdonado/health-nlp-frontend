@@ -26,50 +26,90 @@ ul#analysis-list {
         border-top: 1px solid $gray-border;
         min-height: 5em;
         border-radius: 3px;
+        vertical-align: middle;
         font-size: 90%;
         span,
         div {
+            vertical-align: middle;
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        .message-date {
+        .source {
+            display: inline-block;
+            font-size: 130%;
+            width: 1em;
+            height: 1em;
+            vertical-align: text-bottom;
+            background-image: url('../../../assets/images/twitter-icon.png');
+            background-size: cover;
+        }
+        .date-and-query {
             white-space: nowrap;
             display: inline-block;
-            font-size: 75%;
+            font-size: 90%;
+            padding-bottom: 6px;
         }
         .message {
-            .message-text {
-                width: 79%;
-                display: inline-block;
-            }
-            .source {
-                width: 19%;
-                text-align: right;
-                display: inline-block;
-                line-height: 4.3em;
-            }
+            padding: 10px;
+            display: inline-block;
+            font-style: italic;
+            font-size: 120%;
         }
         .user-information {
             white-space: nowrap;
             .name-and-description {
+                color: $blue-text;
+                font-family: 'raleway-bold';
                 display: inline-block;
                 width: 95%;
             }
             .description {
-                font-style: italic;
+                font-family: 'raleway-light';
+                vertical-align: baseline;
             }
+        }
+        %mini-header {
+            white-space: nowrap;
+            font-size: 75%;
+            text-transform: uppercase;
         }
         .user-analysis {
             white-space: nowrap;
+            padding-bottom: 6px;
+            .mini-header {
+                @extend %mini-header;
+            }
             .health-relation {
-              color: $red-text;
+                font-family: 'raleway-bold';
+                vertical-align: baseline;
+                color: $red-text;
                 &.positive {
                     color: $green-gradient;
                 }
             }
         }
+        .analysis-information {
+            .problem,
+            .solution {
+                display: inline-block;
+                width: calc(50% - 5px);
+            }
+            .solution .mini-header {
+                color: $green-gradient;
+            }
+            .problem .mini-header {
+                color: $red-text;
+            }
+            .mini-header {
+                @extend %mini-header;
+                font-weight: bold;
+                width: 100%;
+                display: inline-block;
+            }
+        }
         &.more-results-btn {
-            @include light-linear-gradient($green-light, $green-gradient);
+            @include light-linear-gradient($green-light,
+            $green-gradient);
             text-transform: uppercase;
             color: $white-gradient;
             font-size: 150%;
