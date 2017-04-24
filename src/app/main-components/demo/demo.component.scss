@@ -68,43 +68,33 @@ ul#analysis-list {
                 vertical-align: baseline;
             }
         }
-        %mini-header {
-            white-space: nowrap;
-            font-size: 75%;
-            text-transform: uppercase;
-        }
-        .user-analysis {
-            white-space: nowrap;
-            padding-bottom: 6px;
-            .mini-header {
-                @extend %mini-header;
+        .analysis-information {
+            table {
+                width: 100%;
             }
-            .health-relation {
-                font-family: 'raleway-bold';
-                vertical-align: baseline;
-                color: $red-text;
+            colgroup col {
+                width: 33%;
+            }
+            th {
+                text-align: center;
+                font-size: 75%;
+                text-transform: uppercase;
                 &.positive {
                     color: $green-gradient;
                 }
             }
-        }
-        .analysis-information {
-            .problem,
-            .solution {
-                display: inline-block;
-                width: calc(50% - 5px);
-            }
-            .solution .mini-header {
+            th.solution {
                 color: $green-gradient;
             }
-            .problem .mini-header {
+            th.problem {
                 color: $red-text;
             }
-            .mini-header {
-                @extend %mini-header;
-                font-weight: bold;
-                width: 100%;
-                display: inline-block;
+            td .block-wrap {
+                text-align: center;
+                text-overflow: ellipsis;
+                word-wrap: break-word;
+                overflow: hidden;
+                max-height: 2.6em;
             }
         }
         &.more-results-btn {

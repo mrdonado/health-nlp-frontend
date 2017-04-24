@@ -16,23 +16,38 @@
         <div class="message">
           &ldquo;{{item.message}}&bdquo;
         </div>
-        <div class="user-analysis">
-          <span class="user-profile">
-            <span class="mini-header">User analysis: </span>
-            <span class="health-relation" [ngClass]="{'positive': item.analysis.health_related}">
-              {{item.analysis.health_related ? item.analysis.profile : 'not health related'}}
-            </span>
-          </span>
-        </div>
         <div class="analysis-information">
-          <span class="problem">
-            <span class="mini-header">Problem</span>
-            {{item.analysis.problem}}
-          </span>
-          <span class="solution">
-            <span class="mini-header">Solution</span>
-            {{item.analysis.solution}}
-          </span>
+          <table>
+            <colgroup>
+              <col>
+              <col>
+              <col>
+            </colgroup>
+            <thead>
+              <th class="user" [ngClass]="{'positive': item.analysis.health_related}">User</th>
+              <th class="problem">Problem</th>
+              <th class="solution">Solution</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="block-wrap">
+                    {{item.analysis.health_related ? item.analysis.profile : 'not health related'}}
+                  </div>
+                </td>
+                <td>
+                  <div class="block-wrap">
+                    {{item.analysis.problem}}
+                  </div>
+                </td>
+                <td>
+                  <div class="block-wrap">
+                    {{item.analysis.solution}}
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </li>
       <!-- End of Analysis Item -->
