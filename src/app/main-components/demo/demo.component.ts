@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { BehaviorSubject } from 'rxjs';
 
-
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
@@ -14,10 +13,11 @@ export class DemoComponent implements OnInit {
 
   analysis: FirebaseListObservable<any[]>;
   pageSize: BehaviorSubject<any>;
+  pageStep: number;
 
   constructor(af: AngularFire) {
-
-    this.pageSize = new BehaviorSubject(5);
+    this.pageStep = 5;
+    this.pageSize = new BehaviorSubject(this.pageStep);
 
     this.analysis = af.database.list('/analysis',
       {
@@ -34,7 +34,7 @@ export class DemoComponent implements OnInit {
   }
 
   moreResults() {
-    this.pageSize.next(this.pageSize.getValue() + 5);
+    this.pageSize.next(this.pageSize.getValue() + this.pageStep);
   }
 
 }
