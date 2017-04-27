@@ -56,4 +56,28 @@ describe('DemoComponent', () => {
     expect(component.pageSize.getValue()).toEqual(10);
   });
 
+  it('should colorize the message accordingly', () => {
+    let item = {
+      message: 'Some message with a problem and a solution',
+      analysis: {
+        problem: 'a problem',
+        solution: 'a solution'
+      }
+    };
+    let htmlMessage = component.formatMessage(item);
+    expect(htmlMessage).toEqual('Some message with <strong class="problem">a problem</strong> and <strong class="solution">a solution</strong>');
+
+    item = {
+      message: 'Some message with a problem and no solution',
+      analysis: {
+        problem: 'a problem',
+        solution: 'a solution'
+      }
+    };
+    htmlMessage = component.formatMessage(item);
+    expect(htmlMessage).toEqual('Some message with <strong class="problem">a problem</strong> and no solution');
+
+
+  });
+
 });

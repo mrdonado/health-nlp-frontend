@@ -40,8 +40,13 @@ ul#analysis-list {
             width: 1em;
             height: 1em;
             vertical-align: text-bottom;
-            background-image: url('../../../assets/images/twitter-icon.png');
             background-size: cover;
+            &.web {
+                background-image: url('../../../assets/images/web-icon.png');
+            }
+            &.twitter {
+                background-image: url('../../../assets/images/twitter-icon.png');
+            }
         }
         .date-and-query {
             white-space: nowrap;
@@ -54,6 +59,17 @@ ul#analysis-list {
             display: inline-block;
             font-style: italic;
             font-size: 120%;
+            .problem, .solution{
+                border-radius: 9px;
+            }
+            .problem{
+                border: 3px solid transparentize($red-text, 0.55);
+                background-color: transparentize(red, 0.85);
+            }
+            .solution{
+                border: 3px solid transparentize($green-gradient, 0.45);
+                background-color: transparentize(green, 0.85);
+            }
         }
         .user-information {
             white-space: nowrap;
