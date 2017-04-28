@@ -13,6 +13,36 @@ $red-text: #ac7373;
     background: linear-gradient(to bottom, $start-color 0%, $end-color 100%);
 }
 
+@keyframes card-animation {
+    0% {
+        opacity: 0;
+        transform: scale(0.987) translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes marks-animation {
+    0% {
+        opacity: 0;
+        background-color: transparent;
+        border-color: transparent;
+        transform: scaleX(0.95);
+    }
+    20% {
+        opacity: 0.7;
+        background-color: transparent;
+        border-color: transparent;
+        transform: scaleX(0.95);
+    }
+    100% {
+        opacity: 1;
+        width: scaleX(1);
+    }
+}
+
 ul#analysis-list {
     list-style: none;
     max-width: 450px;
@@ -21,6 +51,9 @@ ul#analysis-list {
     border-radius: 3px;
     box-shadow: 0px 0px 10px 0px $white-shadow;
     li {
+        &.analysis-item {
+            animation: card-animation 0.5s 1;
+        }
         @include light-linear-gradient($white, $white-gradient);
         padding: 0.8rem;
         border-top: 1px solid $gray-border;
@@ -59,14 +92,17 @@ ul#analysis-list {
             display: inline-block;
             font-style: italic;
             font-size: 120%;
-            .problem, .solution{
+            .problem,
+            .solution {
+                display: inline-block;
                 border-radius: 9px;
+                animation: marks-animation 1.5s 1;
             }
-            .problem{
+            .problem {
                 border: 3px solid transparentize($red-text, 0.55);
                 background-color: transparentize(red, 0.85);
             }
-            .solution{
+            .solution {
                 border: 3px solid transparentize($green-gradient, 0.45);
                 background-color: transparentize(green, 0.85);
             }
