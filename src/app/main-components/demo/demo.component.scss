@@ -90,7 +90,7 @@ ul#analysis-list {
             font-size: 90%;
             padding-bottom: 6px;
             max-width: 99%;
-            span{
+            span {
                 vertical-align: baseline;
             }
         }
@@ -166,6 +166,14 @@ ul#analysis-list {
             max-height: 2em;
             text-align: center;
             line-height: 2em;
+            -webkit-user-select: none;
+            /* Chrome all / Safari all */
+            -moz-user-select: none;
+            /* Firefox all */
+            -ms-user-select: none;
+            /* IE 10+ */
+            user-select: none;
+            /* Likely future */
             cursor: pointer;
         }
     }
