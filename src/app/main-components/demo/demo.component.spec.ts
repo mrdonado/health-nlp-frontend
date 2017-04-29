@@ -11,11 +11,28 @@ import { DemoComponent } from './demo.component';
 describe('DemoComponent', () => {
 
   let _collection = 'unknown';
+  let _options = {};
+  let subscriptions = 0;
 
   const AngularFireMock = {
     database: {
       list: (collection, options) => {
         _collection = collection;
+        _options = options;
+        return {
+          subscribe: (cb) => {
+            subscriptions += 1;
+            const demoAnalysis = {
+              message: 'Some message with a problem and a solution',
+              analysis: {
+                problem: 'a problem',
+                solution: 'a solution'
+              }
+            };
+            cb([Object.assign({ $key: 15 }, demoAnalysis),
+            Object.assign({ $key: 16 }, demoAnalysis)]);
+          }
+        }
       }
     }
   };
@@ -48,12 +65,14 @@ describe('DemoComponent', () => {
 
   it('should retrieve a collection /analysis', () => {
     expect(_collection).toEqual('/analysis');
+    expect(_options).toEqual({ query: { limitToLast: 5, orderByKey: true } });
   });
 
-  it('should increase the page size after running moreResults', () => {
-    expect(component.pageSize.getValue()).toEqual(5);
+  it('should request more items after running moreResults', () => {
+    subscriptions = 0;
     component.moreResults();
-    expect(component.pageSize.getValue()).toEqual(10);
+    expect(_options).toEqual({ query: { limitToLast: 6, orderByKey: true, endAt: 15 } });
+    expect(subscriptions).toEqual(1);
   });
 
   it('should colorize the message accordingly', () => {
@@ -65,7 +84,8 @@ describe('DemoComponent', () => {
       }
     };
     let htmlMessage = component.formatMessage(item);
-    expect(htmlMessage).toEqual('Some message with <strong class="problem">a problem</strong> and <strong class="solution">a solution</strong>');
+    expect(htmlMessage).toEqual('Some message with <strong class="problem">' +
+      'a problem</strong> and <strong class="solution">a solution</strong>');
 
     item = {
       message: 'Some message with a problem and no solution',
@@ -76,8 +96,6 @@ describe('DemoComponent', () => {
     };
     htmlMessage = component.formatMessage(item);
     expect(htmlMessage).toEqual('Some message with <strong class="problem">a problem</strong> and no solution');
-
-
   });
 
 });
