@@ -13,5 +13,6 @@ $text-color: #3f404d;
 
 html{
   font-family: 'raleway-light', 'Arial Narrow', Arial, sans-serif;
+  min-height: 120vh;
   color: $text-color;
 }
