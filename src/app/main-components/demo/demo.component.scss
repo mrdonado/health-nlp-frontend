@@ -57,6 +57,7 @@ ul#analysis-list {
             animation: card-animation 0.5s 1;
         }
         @include light-linear-gradient($white, $white-gradient);
+        overflow: hidden;
         padding: 0.8rem;
         border-top: 1px solid $gray-border;
         min-height: 5em;
@@ -88,6 +89,10 @@ ul#analysis-list {
             display: inline-block;
             font-size: 90%;
             padding-bottom: 6px;
+            max-width: 99%;
+            span{
+                vertical-align: baseline;
+            }
         }
         .message {
             padding: 10px;
@@ -115,7 +120,7 @@ ul#analysis-list {
                 color: $blue-text;
                 font-family: 'raleway-bold';
                 display: inline-block;
-                width: 95%;
+                width: 99%;
             }
             .description {
                 font-family: 'raleway-light';
