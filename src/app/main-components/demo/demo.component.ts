@@ -11,7 +11,7 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 })
 export class DemoComponent implements OnInit {
 
-  private analysis: BehaviorSubject<any[]>; // A list with the retrieved analysis from firebase
+  public analysis: BehaviorSubject<any[]>; // A list with the retrieved analysis from firebase
   private pageStep: number; // The number of items requested each time
   private lastKey: any; // The key of the last item, in order to allow pagination
 
