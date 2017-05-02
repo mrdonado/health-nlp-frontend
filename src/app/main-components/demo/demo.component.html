@@ -5,7 +5,7 @@
       <li class="analysis-item" *ngFor="let item of analysis | async | reverse">
         <i class="source" [ngClass]="item.source">
         </i>
-        <span class="date-and-query">{{item.source}} - {{item.created_at | date:'medium'}} <span *ngIf="item.query">- Query: "{{item.query}}"</span>
+        <span class="date-and-query">{{item.source}} - {{item.created_at}} <span *ngIf="item.query">- Query: "{{item.query}}"</span>
         </span>
         <div class="user-information">
           <span class="name-and-description">
