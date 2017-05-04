@@ -11,6 +11,7 @@ import { NotFoundPageComponent } from './main-components/not-found-page/not-foun
 import { DemoComponent } from './main-components/demo/demo.component';
 import { AboutComponent } from './main-components/about/about.component';
 import { ReversePipe } from './custom-pipes/reverse.pipe';
+import { SpinnerComponent } from './shared-components/spinner/spinner.component';
 
 // Must export the config
 export const firebaseConfig = {
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     NotFoundPageComponent,
     DemoComponent,
     AboutComponent,
-    ReversePipe
+    ReversePipe,
+    SpinnerComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
