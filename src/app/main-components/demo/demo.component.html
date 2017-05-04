@@ -1,5 +1,6 @@
 <div id="demo-page-wrapper">
-  <div id="analysis-section">
+  <app-spinner *ngIf="emptyList"></app-spinner>
+  <div *ngIf="!emptyList" id="analysis-section">
     <ul id="analysis-list">
       <!-- Analysis Item -->
       <li class="analysis-item" *ngFor="let item of analysis | async | reverse">

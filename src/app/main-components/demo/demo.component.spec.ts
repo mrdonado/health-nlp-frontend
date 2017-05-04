@@ -6,6 +6,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement, Injectable } from '@angular/core';
 import { ReversePipe } from '../../custom-pipes/reverse.pipe';
 import { DemoComponent } from './demo.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 describe('DemoComponent', () => {
@@ -42,6 +43,7 @@ describe('DemoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [DemoComponent, ReversePipe],
       providers: [
         {
