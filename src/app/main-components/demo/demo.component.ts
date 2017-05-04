@@ -14,7 +14,7 @@ export class DemoComponent implements OnInit {
   public analysis: BehaviorSubject<any[]>; // A list with the retrieved analysis from firebase
   private pageStep: number; // The number of items requested each time
   private lastKey: any; // The key of the last item, in order to allow pagination
-  private emptyList: boolean; // It tells wether the list has received some elements or not
+  public emptyList: boolean; // It tells wether the list has received some elements or not
 
   constructor(private af: AngularFire) {
     this.pageStep = 5;
