@@ -7,174 +7,156 @@ $green-gradient: #73ac78;
 $blue-text: #3f2a72;
 $red-text: #ac7373;
 @mixin light-linear-gradient($start-color, $end-color) {
-    background: $start-color;
-    background: -moz-linear-gradient(top, $start-color 0%, $end-color 100%);
-    background: -webkit-linear-gradient(top, $start-color 0%, $end-color 100%);
-    background: linear-gradient(to bottom, $start-color 0%, $end-color 100%);
+  background: $start-color;
+  background: -moz-linear-gradient(top, $start-color 0%, $end-color 100%);
+  background: -webkit-linear-gradient(top, $start-color 0%, $end-color 100%);
+  background: linear-gradient(to bottom, $start-color 0%, $end-color 100%);
 }
 
 @keyframes card-animation {
-    0% {
-        opacity: 0;
-        transform: scale(0.987) translateY(-10px);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: scale(0.987) translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 @keyframes marks-animation {
-    0% {
-        opacity: 0;
-        background-color: transparent;
-        border-color: transparent;
-        transform: scaleX(0.95);
-    }
-    20% {
-        opacity: 0.7;
-        background-color: transparent;
-        border-color: transparent;
-        transform: scaleX(0.95);
-    }
-    100% {
-        opacity: 1;
-        width: scaleX(1);
-    }
+  0% {
+    opacity: 0;
+    background-color: transparent;
+    border-color: transparent;
+    transform: scaleX(0.95);
+  }
+  20% {
+    opacity: 0.7;
+    background-color: transparent;
+    border-color: transparent;
+    transform: scaleX(0.95);
+  }
+  100% {
+    opacity: 1;
+    width: scaleX(1);
+  }
 }
 
 ul#analysis-list {
-    list-style: none;
-    max-width: 450px;
-    margin: auto;
-    margin-top: 80px;
-    margin-bottom: 300px;
-    padding: 0;
-    border-radius: 3px;
-    box-shadow: 0px 0px 10px 0px $white-shadow;
-    li {
-        &.analysis-item {
-            animation: card-animation 0.5s 1;
-        }
-        @include light-linear-gradient($white, $white-gradient);
-        overflow: hidden;
-        padding: 0.8rem;
-        border-top: 1px solid $gray-border;
-        min-height: 5em;
-        border-radius: 3px;
-        vertical-align: middle;
-        font-size: 90%;
-        span,
-        div {
-            vertical-align: middle;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .source {
-            display: inline-block;
-            font-size: 130%;
-            width: 1em;
-            height: 1em;
-            vertical-align: text-bottom;
-            background-size: cover;
-            &.web {
-                background-image: url('../../../assets/images/web-icon.png');
-            }
-            &.twitter {
-                background-image: url('../../../assets/images/twitter-icon.png');
-            }
-        }
-        .date-and-query {
-            white-space: nowrap;
-            display: inline-block;
-            font-size: 90%;
-            padding-bottom: 6px;
-            max-width: 99%;
-            span {
-                vertical-align: baseline;
-            }
-        }
-        .message {
-            padding: 10px;
-            display: inline-block;
-            font-style: italic;
-            font-size: 120%;
-            .problem,
-            .solution {
-                display: inline-block;
-                border-radius: 9px;
-                animation: marks-animation 1.5s 1;
-            }
-            .problem {
-                border: 3px solid transparentize($red-text, 0.55);
-                background-color: transparentize(red, 0.85);
-            }
-            .solution {
-                border: 3px solid transparentize($green-gradient, 0.45);
-                background-color: transparentize(green, 0.85);
-            }
-        }
-        .user-information {
-            white-space: nowrap;
-            .name-and-description {
-                color: $blue-text;
-                font-family: 'raleway-bold';
-                display: inline-block;
-                width: 99%;
-            }
-            .description {
-                font-family: 'raleway-light';
-                vertical-align: baseline;
-            }
-        }
-        .analysis-information {
-            table {
-                width: 100%;
-            }
-            colgroup col {
-                width: 33%;
-            }
-            th {
-                text-align: center;
-                font-size: 75%;
-                text-transform: uppercase;
-                &.positive {
-                    color: $green-gradient;
-                }
-            }
-            th.solution {
-                color: $green-gradient;
-            }
-            th.problem {
-                color: $red-text;
-            }
-            td .block-wrap {
-                text-align: center;
-                text-overflow: ellipsis;
-                word-wrap: break-word;
-                overflow: hidden;
-                max-height: 2.6em;
-            }
-        }
-        &.more-results-btn {
-            @include light-linear-gradient($green-light,
-            $green-gradient);
-            text-transform: uppercase;
-            color: $white-gradient;
-            font-size: 150%;
-            min-height: 2em;
-            max-height: 2em;
-            text-align: center;
-            line-height: 2em;
-            -webkit-user-select: none;
-            /* Chrome all / Safari all */
-            -moz-user-select: none;
-            /* Firefox all */
-            -ms-user-select: none;
-            /* IE 10+ */
-            user-select: none;
-            /* Likely future */
-            cursor: pointer;
-        }
+  list-style: none;
+  max-width: 450px;
+  margin: auto;
+  margin-top: 80px;
+  margin-bottom: 300px;
+  padding: 0;
+  border-radius: 3px;
+  box-shadow: 0px 0px 10px 0px $white-shadow;
+  li {
+    &.analysis-item {
+      animation: card-animation 0.5s 1;
     }
+    @include light-linear-gradient($white, $white-gradient);
+    overflow: hidden;
+    padding: 0.8rem;
+    border-top: 1px solid $gray-border;
+    min-height: 5em;
+    border-radius: 3px;
+    vertical-align: middle;
+    font-size: 90%;
+    span,
+    div {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .source {
+      display: inline-block;
+      font-size: 130%;
+      width: 1em;
+      height: 1em;
+      vertical-align: text-bottom;
+      background-size: cover;
+      &.web {
+        background-image: url('../../../assets/images/web-icon.png');
+      }
+      &.twitter {
+        background-image: url('../../../assets/images/twitter-icon.png');
+      }
+    }
+    .date-and-query {
+      white-space: nowrap;
+      display: inline-block;
+      font-size: 90%;
+      padding-bottom: 6px;
+      max-width: 99%;
+      span {
+        vertical-align: baseline;
+      }
+    }
+    .message {
+      padding: 10px;
+      text-align: center;
+      display: inline-block;
+      font-style: italic;
+      font-size: 120%;
+      .problem,
+      .solution {
+        display: inline-block;
+        border-radius: 9px;
+        animation: marks-animation 1.5s 1;
+      }
+      .problem {
+        border: 3px solid transparentize($red-text, 0.55);
+        background-color: transparentize(red, 0.85);
+      }
+      .solution {
+        border: 3px solid transparentize($green-gradient, 0.45);
+        background-color: transparentize(green, 0.85);
+      }
+    }
+    .user-information {
+      white-space: nowrap;
+      .name-and-description {
+        color: $blue-text;
+        font-family: 'raleway-bold';
+        display: inline-block;
+        width: 99%;
+      }
+      .description {
+        font-family: 'raleway-light';
+        vertical-align: baseline;
+      }
+    }
+    .user-analysis {
+      white-space: nowrap;
+      text-align: right;
+      .title {
+        text-transform: uppercase;
+        font-size: 80%;
+        &.positive{
+            color: $green-gradient;
+        }
+      }
+    }
+    &.more-results-btn {
+      @include light-linear-gradient($green-light,
+      $green-gradient);
+      text-transform: uppercase;
+      color: $white-gradient;
+      font-size: 150%;
+      min-height: 2em;
+      max-height: 2em;
+      text-align: center;
+      line-height: 2em;
+      -webkit-user-select: none;
+      /* Chrome all / Safari all */
+      -moz-user-select: none;
+      /* Firefox all */
+      -ms-user-select: none;
+      /* IE 10+ */
+      user-select: none;
+      /* Likely future */
+      cursor: pointer;
+    }
+  }
 }

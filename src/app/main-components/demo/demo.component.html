@@ -4,9 +4,9 @@
     <ul id="analysis-list">
       <!-- Analysis Item -->
       <li class="analysis-item" *ngFor="let item of analysis | async | reverse">
-        <i class="source" [ngClass]="item.source">
-        </i>
-        <span class="date-and-query">{{item.source}} - {{item.created_at}} <span *ngIf="item.query">- Query: "{{item.query}}"</span>
+        <span class="date-and-query">
+          <i class="source" [ngClass]="item.source"></i>
+          {{item.source}} - {{item.created_at}} <span *ngIf="item.query">- Query: "{{item.query}}"</span>
         </span>
         <div class="user-information">
           <span class="name-and-description">
@@ -17,38 +17,11 @@
         <div class="message" [innerHTML]="formatMessage(item)">
           <!--&ldquo;{{item.message}}&bdquo;-->
         </div>
-        <div class="analysis-information">
-          <table>
-            <colgroup>
-              <col>
-              <col>
-              <col>
-            </colgroup>
-            <thead>
-              <th class="user" [ngClass]="{'positive': item.analysis.health_related}">User</th>
-              <th class="problem">Problem</th>
-              <th class="solution">Solution</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div class="block-wrap">
-                    {{item.analysis.health_related ? item.analysis.profile : 'not health related'}}
-                  </div>
-                </td>
-                <td>
-                  <div class="block-wrap">
-                    {{item.analysis.problem}}
-                  </div>
-                </td>
-                <td>
-                  <div class="block-wrap">
-                    {{item.analysis.solution}}
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="user-analysis">
+          <span>
+            <span class="title" [ngClass]="{'positive': item.analysis.health_related}">User Analysis: </span> {{item.analysis.health_related
+          ? item.analysis.profile : 'not health related'}}
+          </span>
         </div>
       </li>
       <!-- End of Analysis Item -->
