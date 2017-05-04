@@ -1,6 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 $text-color: #3f404d;
 
+@keyframes fade-in {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+
 @font-face{
   font-family: 'raleway-light';
   src: url('assets/fonts/Raleway-Light.ttf');
