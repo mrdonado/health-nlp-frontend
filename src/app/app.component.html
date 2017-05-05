@@ -1,7 +1,21 @@
 <div id="app-wrapper">
   <nav>
-    <a routerLink="/" class="play-demo" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"></a>
-    <a routerLink="/about" class="about" routerLinkActive="active"></a>
+    <a routerLink="/"
+      class="play-demo"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}">
+      <div class="add-job"
+        (click)="toggleForm()">
+      </div>
+    </a>
+    <a routerLink="/about"
+      class="about"
+      routerLinkActive="active"></a>
   </nav>
+  <div id="add-job-form"
+    [ngClass]="{'active': showForm}"
+    (click)="toggleForm()">
+    This is some form
+  </div>
   <router-outlet></router-outlet>
 </div>

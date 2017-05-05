@@ -6,4 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  public showForm: boolean;
+
+  constructor() {
+    this.showForm = false;
+  }
+
+  toggleForm() {
+    this.showForm = !this.showForm;
+  }
 }

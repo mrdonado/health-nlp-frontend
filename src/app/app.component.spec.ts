@@ -23,19 +23,19 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   }));
 
-  /*
-  // Default tests. Left here for future reference
-  it(`should have as title 'app works!'`, async(() => {
+  it('should toggle the form', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app works!');
+    const compiled = fixture.debugElement.nativeElement;
+    fixture.detectChanges()
+    let formElement = compiled.querySelector('#add-job-form');
+    expect(app.showForm).toEqual(false);
+    expect(formElement.className).toEqual('');
+    app.toggleForm();
+    fixture.detectChanges()
+    expect(app.showForm).toEqual(true);
+    formElement = compiled.querySelector('#add-job-form');
+    expect(formElement.className).toEqual('active');
   }));
 
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('app works!');
-  }));
-  */
 });
