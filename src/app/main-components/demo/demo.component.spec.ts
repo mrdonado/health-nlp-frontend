@@ -90,6 +90,16 @@ describe('DemoComponent', () => {
       'a problem</strong> and <strong class="solution">a solution</strong>');
 
     item = {
+      message: 'Some message with no problem and no solution',
+      analysis: {
+        problem: 'a problem',
+        solution: 'a solution'
+      }
+    };
+    htmlMessage = component.formatMessage(item);
+    expect(htmlMessage).toEqual('Some message with no problem and no solution');
+
+    item = {
       message: 'Some message with a problem and no solution',
       analysis: {
         problem: 'a problem',

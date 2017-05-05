@@ -101,6 +101,7 @@ export class DemoComponent implements OnInit {
         '<strong class="solution">' + item.analysis.solution +
         '</strong>' + message.substring(solutionIndex + item.analysis.solution.length);
     }
-    return message;
+    // If no problem and no solution have been found, the original message is returned
+    return message !== '' ? message : item.message;
   }
 }
