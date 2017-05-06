@@ -1,5 +1,6 @@
 import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing';
 import { AnalysisFormComponent } from './analysis-form.component';
+import { FormsModule } from '@angular/forms';
 
 import {
   BaseRequestOptions,
@@ -23,6 +24,7 @@ describe('AnalysisFormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AnalysisFormComponent],
+      imports: [FormsModule],
       providers: [
         MockBackend,
         BaseRequestOptions,
@@ -49,7 +51,21 @@ describe('AnalysisFormComponent', () => {
       backend = _mockBackend;
     }));
 
-  it('should create', () => {
+  it('should exist', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should clear the form after closing', () => {
+    component.message = 'someMessage';
+    component.userName = 'someUserName';
+    component.userDescription = 'someDescription';
+    expect(component.message).toEqual('someMessage');
+    expect(component.userName).toEqual('someUserName');
+    expect(component.userDescription).toEqual('someDescription');
+    component.closeForm();
+    expect(component.message).toEqual('');
+    expect(component.userName).toEqual('');
+    expect(component.userDescription).toEqual('');
+  });
+
 });
