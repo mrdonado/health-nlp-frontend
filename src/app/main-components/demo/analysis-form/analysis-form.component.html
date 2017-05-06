@@ -1,9 +1,27 @@
-<p>
-  <input type="text"
-    (keyup)="userName = $event.target.value">
-  <input type="text"
-    (keyup)="userDescription = $event.target.value">
-  <input type="text"
-    (keyup)="message = $event.target.value">
-  <button (click)="sendNewJob()">Send!</button>
-</p>
+<div id="analysis-form">
+  <button (click)="closeForm()">Close me</button>
+  <h2>Test The Analyzer</h2>
+  <p>
+    Here you can try out the analyzer by sending a new message. Your
+  </p>
+  <form>
+    <p></p>
+    <label for="user-name">User Name:</label>
+    <input type="text"
+      name="user-name"
+      id="user-name"
+      [(ngModel)]="userName">
+    <label for="user-description">User Description:</label>
+    <input type="text"
+      id="user-description"
+      name="user-description"
+      [(ngModel)]="userDescription">
+    <label for="message">Message</label>
+    <textarea id="message"
+      name="message"
+      [(ngModel)]="message"
+      rows="4">
+      </textarea>
+    <button (click)="sendNewJob()">Send!</button>
+  </form>
+</div>
