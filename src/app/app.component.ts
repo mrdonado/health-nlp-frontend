@@ -13,7 +13,7 @@ export class AppComponent {
     this.showForm = false;
   }
 
-  toggleForm() {
+  toggleForm(event) {
     this.showForm = !this.showForm;
   }
 }
