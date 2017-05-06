@@ -55,7 +55,8 @@ a.active .add-job {
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
-  width: 300px;
+  width: 100%;
+  max-width: 540px;
   height: 500px;
   background-color: white;
   box-shadow: 0 0 13px 0 rgba(128, 128, 128, 0.72);
