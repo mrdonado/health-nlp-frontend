@@ -12,9 +12,8 @@
       class="about"
       routerLinkActive="active"></a>
   </nav>
-  <div id="add-job-form"
-    [ngClass]="{'active': showForm}">
-    <app-analysis-form></app-analysis-form>
-  </div>
+  <app-analysis-form id="add-job-form"
+    [ngClass]="{'active': showForm}"
+    (closeCb)="toggleForm($event)"></app-analysis-form>
   <router-outlet></router-outlet>
 </div>
