@@ -1,3 +1,9 @@
 <p>
-  analysis-form works!
+  <input type="text"
+    (keyup)="userName = $event.target.value">
+  <input type="text"
+    (keyup)="userDescription = $event.target.value">
+  <input type="text"
+    (keyup)="message = $event.target.value">
+  <button (click)="sendNewJob()">Send!</button>
 </p>
