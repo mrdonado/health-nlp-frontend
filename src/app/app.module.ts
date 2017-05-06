@@ -12,6 +12,7 @@ import { DemoComponent } from './main-components/demo/demo.component';
 import { AboutComponent } from './main-components/about/about.component';
 import { ReversePipe } from './custom-pipes/reverse.pipe';
 import { SpinnerComponent } from './shared-components/spinner/spinner.component';
+import { AnalysisFormComponent } from './main-components/demo/analysis-form/analysis-form.component';
 
 // Must export the config
 export const firebaseConfig = {
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     DemoComponent,
     AboutComponent,
     ReversePipe,
-    SpinnerComponent
+    SpinnerComponent,
+    AnalysisFormComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
