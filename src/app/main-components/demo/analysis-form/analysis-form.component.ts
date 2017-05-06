@@ -12,9 +12,9 @@ export class AnalysisFormComponent implements OnInit {
   @Output() closeCb = new EventEmitter();
 
   private newJobUrl: string;
-  private userName: string;
-  private userDescription: string;
-  private message: string;
+  public userName: string;
+  public userDescription: string;
+  public message: string;
 
   constructor(private http: Http) {
     this.newJobUrl = environment.analyzerUrl + '/analysis';
