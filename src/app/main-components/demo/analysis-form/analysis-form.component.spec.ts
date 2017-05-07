@@ -47,7 +47,7 @@ describe('AnalysisFormComponent', () => {
   });
 
   beforeEach(inject([MockBackend],
-    (_sessionService, _mockBackend) => {
+    (_mockBackend) => {
       backend = _mockBackend;
     }));
 
@@ -66,6 +66,22 @@ describe('AnalysisFormComponent', () => {
     expect(component.message).toEqual('');
     expect(component.userName).toEqual('');
     expect(component.userDescription).toEqual('');
+  });
+
+  it('should send a POST request to the server when creating a new job for the analysis engine', (done) => {
+    backend.connections.subscribe((connection: MockConnection) => {
+      expect(connection.request.method).toEqual(RequestMethod.Post);
+      const responseBody = JSON.parse(connection.request.getBody());
+      expect(responseBody.source).toEqual('web');
+      expect(responseBody.user_name).toEqual('someUserName');
+      expect(responseBody.user_description).toEqual('someDescription');
+      expect(responseBody.message).toEqual('someMessage');
+      connection.mockRespond(new Response(new ResponseOptions({})));
+      done();
+    });
+    component.message = 'someMessage';
+    component.userName = 'someUserName';
+    component.userDescription = 'someDescription'; component.sendNewJob();
   });
 
 });
