@@ -12,6 +12,10 @@
       class="about"
       routerLinkActive="active"></a>
   </nav>
+  <div id="form-mask"
+    (click)="toggleForm()"
+    [ngClass]="{'active': showForm}">
+  </div>
   <app-analysis-form id="add-job-form"
     [ngClass]="{'active': showForm}"
     (closeCb)="toggleForm($event)"></app-analysis-form>
