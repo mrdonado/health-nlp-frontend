@@ -1,3 +1,20 @@
+@import '../../../../common';
+
 #analysis-form {
-  padding: 2rem;
+    padding: 0.5rem 2rem 2rem 2rem;
+    .close-button {
+        cursor: pointer;
+        position: absolute;
+        background-image: url('../../../../assets/images/close-icon.svg');
+        top: 1.3rem;
+        right: 1.6rem;
+        height: 1.6rem;
+        width: 1.6rem;
+        background-size: contain;
+        background-color: transparent;
+        border: none;
+    }
+    .send-button{
+      @extend %green-button;
+    }
 }

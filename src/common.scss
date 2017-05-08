@@ -1,0 +1,27 @@
+@import 'palette';
+@mixin light-linear-gradient($start-color, $end-color) {
+    background: $start-color;
+    background: -moz-linear-gradient(top, $start-color 0%, $end-color 100%);
+    background: -webkit-linear-gradient(top, $start-color 0%, $end-color 100%);
+    background: linear-gradient(to bottom, $start-color 0%, $end-color 100%);
+}
+
+%green-button {
+    @include light-linear-gradient($green-light, $green-gradient);
+    text-transform: uppercase;
+    color: $white-gradient;
+    font-size: 150%;
+    min-height: 2em;
+    max-height: 2em;
+    text-align: center;
+    line-height: 2em;
+    -webkit-user-select: none;
+    /* Chrome all / Safari all */
+    -moz-user-select: none;
+    /* Firefox all */
+    -ms-user-select: none;
+    /* IE 10+ */
+    user-select: none;
+    /* Likely future */
+    cursor: pointer;
+}
