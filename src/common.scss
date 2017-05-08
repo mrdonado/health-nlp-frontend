@@ -1,4 +1,6 @@
 @import 'palette';
+@import 'normalize';
+
 @mixin light-linear-gradient($start-color, $end-color) {
     background: $start-color;
     background: -moz-linear-gradient(top, $start-color 0%, $end-color 100%);
