@@ -1,34 +1,38 @@
+<button class="close-button"
+  alt="Close"
+  (click)="closeForm()">&nbsp;</button>
 <div id="analysis-form">
-  <button class="close-button"
-    alt="Close"
-    (click)="closeForm()">&nbsp;</button>
   <h2>Test The Analyzer</h2>
-  <p>
-    Here you can try out the analyzer by sending a new message to the analysis engine.
-  </p>
-  <p>
-    When the analysis is ready, your message will appear on the top of the messages list, along with the analysis results.
-  </p>
-  <p> The whole process might take between some seconds and some minutes. Please, be patient.
-  </p>
   <form>
-    <p></p>
-    <label for="user-name">User Name:</label>
-    <input type="text"
-      name="user-name"
-      id="user-name"
-      [(ngModel)]="userName">
-    <label for="user-description">User Description:</label>
-    <input type="text"
-      id="user-description"
-      name="user-description"
-      [(ngModel)]="userDescription">
-    <label for="message">Message</label>
+    <div class="row">
+      <label for="user-name">User Name:</label>
+      <input type="text"
+        name="user-name"
+        id="user-name"
+        [(ngModel)]="userName">
+    </div>
+    <div class="row">
+      <label for="user-description">User Description:</label>
+      <input type="text"
+        id="user-description"
+        name="user-description"
+        [(ngModel)]="userDescription">
+    </div>
+    <label class="message"
+      for="message">Message</label>
     <textarea id="message"
       name="message"
       [(ngModel)]="message"
       rows="4">
       </textarea>
-    <div class="send-button" (click)="sendNewJob()">Send</div>
+    <div class="send-button"
+      (click)="sendNewJob()">Send</div>
   </form>
+  <div class="info">
+    <p>
+      Here you can try out the analyzer by sending a new message to the analysis engine. When the analysis is ready, your message
+      will appear on the top of the messages list, along with the analysis results.
+      <p> The whole process might take between some seconds and some minutes. Please, be patient.
+      </p>
+  </div>
 </div>

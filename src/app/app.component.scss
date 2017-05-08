@@ -1,68 +1,69 @@
 nav {
-  text-align: center;
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  padding-top: 20px;
-  width: 100%;
-  height: 70px;
-  background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-  a {
-    width: 2rem;
-    height: 2rem;
-    margin: 0.3rem;
-    opacity: 0.75;
-    display: inline-block;
-    background-size: contain;
-    background-repeat: no-repeat;
-    transform: scale(1);
-    transition: transform 0.5s, background 1s;
-    &.active {
-      transform: scale(1.3);
+    text-align: center;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    padding-top: 20px;
+    width: 100%;
+    height: 70px;
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    a {
+        width: 2rem;
+        height: 2rem;
+        margin: 0.3rem;
+        opacity: 0.75;
+        display: inline-block;
+        background-size: contain;
+        background-repeat: no-repeat;
+        transform: scale(1);
+        transition: transform 0.5s, background 1s;
+        &.active {
+            transform: scale(1.3);
+        }
+        &.play-demo {
+            background-image: url('../assets/images/play-icon.svg');
+            &.active {
+                background-image: url('../assets/images/add-icon.svg');
+            }
+        }
+        &.about {
+            background-image: url('../assets/images/about-icon.svg');
+        }
     }
-    &.play-demo {
-      background-image: url('../assets/images/play-icon.svg');
-      &.active {
-        background-image: url('../assets/images/add-icon.svg');
-      }
-    }
-    &.about {
-      background-image: url('../assets/images/about-icon.svg');
-    }
-  }
 }
 
 a .add-job {
-  display: none;
-  position: absolute;
-  width: 2rem;
-  height: 2rem;
-  left: 0;
-  top: 0;
+    display: none;
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    left: 0;
+    top: 0;
 }
 
 a.active .add-job {
-  display: inherit;
+    display: inherit;
 }
 
 #add-job-form {
-  opacity: 0;
-  visibility: hidden;
-  z-index: 5;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  max-width: 540px;
-  height: 500px;
-  background-color: white;
-  box-shadow: 0 0 13px 0 rgba(128, 128, 128, 0.72);
-  transition: opacity 0.5s, visibility 0.5s;
-  &.active {
-    opacity: 0.95;
-    visibility: visible;
-  }
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    z-index: 200;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    max-height: 80vh;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 540px;
+    background-color: white;
+    box-shadow: 0 0 13px 0 rgba(160, 160, 160, 0.65);
+    transition: opacity 0.5s, visibility 0.5s;
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
 }

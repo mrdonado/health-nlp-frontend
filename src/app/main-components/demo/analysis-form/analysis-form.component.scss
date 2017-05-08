@@ -1,20 +1,60 @@
 @import '../../../../common';
+.close-button {
+    cursor: pointer;
+    position: absolute;
+    background-image: url('../../../../assets/images/close-icon.svg');
+    top: 1.3rem;
+    right: 1.6rem;
+    height: 1.6rem;
+    width: 1.6rem;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+}
 
 #analysis-form {
     padding: 0.5rem 2rem 2rem 2rem;
-    .close-button {
-        cursor: pointer;
-        position: absolute;
-        background-image: url('../../../../assets/images/close-icon.svg');
-        top: 1.3rem;
-        right: 1.6rem;
-        height: 1.6rem;
-        width: 1.6rem;
-        background-size: contain;
-        background-color: transparent;
-        border: none;
+    overflow-y: auto;
+    max-height: 80vh;
+    .send-button {
+        @extend %green-button;
     }
-    .send-button{
-      @extend %green-button;
+    form {
+        display: flex;
+        flex-flow: column;
+        .row {
+            display: flex;
+            flex-flow: row wrap;
+            margin: 0.5rem 0 0.5rem 0;
+            line-height: 2rem;
+            label {
+                flex: 1;
+            }
+            input {
+                flex: 2;
+                margin-left: 0.2em;
+                padding-left: 0.5em;
+                font-size: 150%;
+                max-width: 30vw;
+                border: 1px solid gray;
+                border-radius: 3px;
+                transition: outline 1s;
+            }
+        }
+        label.message {
+            margin: 0.5rem 0 0.5rem 0;
+        }
+        textarea#message {
+            border: 1px solid gray;
+            border-radius: 3px;
+            margin-bottom: 1rem;
+        }
+    }
+    .info {
+        font-size: 80%;
+        margin-top: 1rem;
+        border-top: 3px double gray;
+        font-size: 80%;
+        padding-top: 2rem;
     }
 }
