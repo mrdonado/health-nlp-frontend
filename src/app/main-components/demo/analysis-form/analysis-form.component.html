@@ -1,5 +1,7 @@
 <div id="analysis-form">
-  <button (click)="closeForm()">Close me</button>
+  <button class="close-button"
+    alt="Close"
+    (click)="closeForm()">&nbsp;</button>
   <h2>Test The Analyzer</h2>
   <p>
     Here you can try out the analyzer by sending a new message to the analysis engine.
@@ -27,6 +29,6 @@
       [(ngModel)]="message"
       rows="4">
       </textarea>
-    <button (click)="sendNewJob()">Send!</button>
+    <div class="send-button" (click)="sendNewJob()">Send</div>
   </form>
 </div>
