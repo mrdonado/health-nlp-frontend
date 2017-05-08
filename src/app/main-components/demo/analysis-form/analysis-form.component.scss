@@ -22,6 +22,10 @@
     form {
         display: flex;
         flex-flow: column;
+        input:focus,
+        textarea:focus {
+            outline-color: $green-gradient;
+        }
         .row {
             display: flex;
             flex-flow: row wrap;
@@ -48,6 +52,7 @@
             border: 1px solid gray;
             border-radius: 3px;
             margin-bottom: 1rem;
+            transition: outline 1s;
         }
     }
     .info {
