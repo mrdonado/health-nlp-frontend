@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { RouterModule, Routes } from '@angular/router';
 
+// Services
+import { LogService } from './services/log.service';
+
 // Components
 import { AppComponent } from './app.component';
 import { NotFoundPageComponent } from './main-components/not-found-page/not-found-page.component';
@@ -51,7 +54,7 @@ const appRoutes: Routes = [
     AnalysisFormComponent,
     SimpleToasterComponent
   ],
-  providers: [],
+  providers: [LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
