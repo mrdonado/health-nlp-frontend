@@ -13,6 +13,7 @@ import { AboutComponent } from './main-components/about/about.component';
 import { ReversePipe } from './custom-pipes/reverse.pipe';
 import { SpinnerComponent } from './shared-components/spinner/spinner.component';
 import { AnalysisFormComponent } from './main-components/demo/analysis-form/analysis-form.component';
+import { SimpleToasterComponent } from './shared-components/simple-toaster/simple-toaster.component';
 
 // Must export the config
 export const firebaseConfig = {
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     AboutComponent,
     ReversePipe,
     SpinnerComponent,
-    AnalysisFormComponent
+    AnalysisFormComponent,
+    SimpleToasterComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
