@@ -1,0 +1,17 @@
+#simple-toaster {
+    position: fixed;
+    z-index: 1000;
+    visibility: hidden;
+    top: 10px;
+    left: 30%;
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    border: 1px solid black;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s;
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}

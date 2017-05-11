@@ -1,4 +1,6 @@
+import { Observable } from 'rxjs/Rx';
 import { Component, OnInit } from '@angular/core';
+import { LogService } from '../../services/log.service';
 
 @Component({
   selector: 'app-simple-toaster',
@@ -7,7 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SimpleToasterComponent implements OnInit {
 
-  constructor() { }
+  public currentMessage: Observable<string>;
+  public activeMessage: boolean;
+
+  constructor(private logService: LogService) {
+    this.activeMessage = false;
+    this.currentMessage = this.logService
+      .getMessageBus()
+      .do((message) => {
+        this.activeMessage = true;
+        setTimeout(() => {
+          this.activeMessage = false;
+        }, 1500);
+      });
+  }
 
   ngOnInit() {
   }

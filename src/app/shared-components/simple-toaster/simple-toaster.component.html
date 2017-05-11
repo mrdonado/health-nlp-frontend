@@ -1,3 +1,4 @@
-<p>
-  simple-toaster works!
-</p>
+<div id="simple-toaster"
+  [ngClass]="{'active': activeMessage}">
+  {{currentMessage| async}}
+</div>

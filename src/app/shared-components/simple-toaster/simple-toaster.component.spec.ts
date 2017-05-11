@@ -1,3 +1,5 @@
+import { Subject } from 'rxjs/Rx';
+import { LogService } from '../../services/log.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SimpleToasterComponent } from './simple-toaster.component';
@@ -5,12 +7,22 @@ import { SimpleToasterComponent } from './simple-toaster.component';
 describe('SimpleToasterComponent', () => {
   let component: SimpleToasterComponent;
   let fixture: ComponentFixture<SimpleToasterComponent>;
+  const testSubject = new Subject<string>();
+  const logServiceMock = {
+    getMessageBus: () => {
+      return testSubject;
+    }
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SimpleToasterComponent ]
+      providers: [{
+        provide: LogService,
+        useValue: logServiceMock
+      }],
+      declarations: [SimpleToasterComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
