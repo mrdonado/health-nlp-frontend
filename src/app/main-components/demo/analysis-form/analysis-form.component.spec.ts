@@ -1,3 +1,4 @@
+import { LogService } from '../../../services/log.service';
 import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing';
 import { AnalysisFormComponent } from './analysis-form.component';
 import { FormsModule } from '@angular/forms';
@@ -20,6 +21,13 @@ describe('AnalysisFormComponent', () => {
   let component: AnalysisFormComponent;
   let fixture: ComponentFixture<AnalysisFormComponent>;
   let backend: MockBackend;
+  let lastMessage: string;
+
+  const logServiceMock = {
+    sendMessage: (message) => {
+      lastMessage = message;
+    }
+  }
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -28,6 +36,10 @@ describe('AnalysisFormComponent', () => {
       providers: [
         MockBackend,
         BaseRequestOptions,
+        {
+          provide: LogService,
+          useValue: logServiceMock
+        },
         {
           provide: Http,
           useFactory: (backendInstance: MockBackend, defaultOptions: BaseRequestOptions) => {

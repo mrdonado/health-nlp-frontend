@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs/Rx';
+import { LogService } from '../../../services/log.service';
 import { environment } from '../../../../environments/environment';
 import { Http } from '@angular/http';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
@@ -16,7 +18,7 @@ export class AnalysisFormComponent implements OnInit {
   public userDescription: string;
   public message: string;
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private logService: LogService) {
     this.newJobUrl = environment.analyzerUrl + '/analysis';
   }
 
@@ -41,10 +43,14 @@ export class AnalysisFormComponent implements OnInit {
       user_name: this.userName,
       user_description: this.userDescription,
       message: this.message
+    }).catch((error) => {
+      this.logService.sendMessage('There was a problem sending the message. Please, try again later.');
+      return Observable.throw(error);
     }).subscribe((response) => {
       console.log(response.json());
       this.closeForm();
       this.clearForm();
+      this.logService.sendMessage('Your message has been sent');
     });
   }
 
