@@ -21,13 +21,8 @@ describe('AnalysisFormComponent', () => {
   let component: AnalysisFormComponent;
   let fixture: ComponentFixture<AnalysisFormComponent>;
   let backend: MockBackend;
-  let lastMessage: string;
 
-  const logServiceMock = {
-    sendMessage: (message) => {
-      lastMessage = message;
-    }
-  }
+  const logServiceSpy = jasmine.createSpyObj('logService', ['sendMessage']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -38,7 +33,7 @@ describe('AnalysisFormComponent', () => {
         BaseRequestOptions,
         {
           provide: LogService,
-          useValue: logServiceMock
+          useValue: logServiceSpy
         },
         {
           provide: Http,
@@ -94,6 +89,25 @@ describe('AnalysisFormComponent', () => {
     component.message = 'someMessage';
     component.userName = 'someUserName';
     component.userDescription = 'someDescription'; component.sendNewJob();
+  });
+
+  it('should log an error message when the analysis couldn\'t be POSTed', (done) => {
+    const errorMessage = 'An error occurred!!!';
+    backend.connections.subscribe((connection: MockConnection) => {
+      expect(connection.request.method).toEqual(RequestMethod.Post);
+      const responseBody = JSON.parse(connection.request.getBody());
+      connection.mockError(new Error(errorMessage));
+    });
+    component.message = 'someMessage';
+    component.userName = 'someUserName';
+    component.userDescription = 'someDescription';
+    try {
+      component.sendNewJob();
+    } catch (err) {
+      expect(err.message).toEqual(errorMessage);
+      expect(logServiceSpy.sendMessage).toHaveBeenCalledWith(jasmine.stringMatching('a problem'));
+      done();
+    }
   });
 
 });
