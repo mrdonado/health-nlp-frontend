@@ -35,7 +35,7 @@ describe('SimpleToasterComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should be activated for 1.5s when a message is sent, and then deactivated again.', (done) => {
+  it('should be activated for 2.5s when a message is sent, and then deactivated again.', (done) => {
     jasmine.clock().install();
     expect(component.activeMessage).toBeFalsy();
     testSubject.next('Some log message');
@@ -44,7 +44,7 @@ describe('SimpleToasterComponent', () => {
     fixture.detectChanges();
     const toasterDiv = fixture.elementRef.nativeElement.querySelector('#simple-toaster');
     expect(toasterDiv.className).toMatch('active');
-    jasmine.clock().tick(1500);
+    jasmine.clock().tick(2500);
     expect(component.activeMessage).toBeFalsy();
     jasmine.clock().uninstall();
     done();

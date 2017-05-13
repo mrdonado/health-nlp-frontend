@@ -20,7 +20,7 @@ export class SimpleToasterComponent implements OnInit {
         this.activeMessage = true;
         setTimeout(() => {
           this.activeMessage = false;
-        }, 1500);
+        }, 2500);
       });
   }
 
