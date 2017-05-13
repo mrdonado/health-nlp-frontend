@@ -26,9 +26,9 @@ position: fixed;
     transform: translateX(-50%);
     max-width: 350px;
     padding: 1em;
-    color: white;
-    box-shadow: 0px 0px 10px 0px #000000;
-    background-color: rgb(93, 73, 74);
+    color: $text-color;
+    box-shadow: 0px 0px 10px 0px $black;
+    background-color: $white;
     opacity: 0;
     transition: visibility 0.5s, opacity 0.5s;
     &.active {
