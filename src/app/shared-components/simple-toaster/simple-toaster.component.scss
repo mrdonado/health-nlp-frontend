@@ -1,17 +1,39 @@
+@import '../../../common';
+
+@keyframes tile-3d {
+    0% {
+        transform: translateX(-50%) rotateX(-90deg) translateY(-150%);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateX(-50%) rotateX(0deg) translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) rotateX(0deg) translateY(0)
+    }
+}
+
 #simple-toaster {
-    position: fixed;
+position: fixed;
     z-index: 1000;
+    font-size: 121%;
+    line-height: 1.8em;
+    text-align: center;
     visibility: hidden;
-    top: 10px;
-    left: 30%;
-    width: 200px;
-    height: 100px;
-    background-color: white;
-    border: 1px solid black;
+    top: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 350px;
+    padding: 1em;
+    color: white;
+    box-shadow: 0px 0px 10px 0px #000000;
+    background-color: rgb(93, 73, 74);
     opacity: 0;
     transition: visibility 0.5s, opacity 0.5s;
     &.active {
         opacity: 1;
         visibility: visible;
+        animation: tile-3d ease-in 1s 1;
     }
 }
