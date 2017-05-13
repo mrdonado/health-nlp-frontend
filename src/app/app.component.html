@@ -6,7 +6,7 @@
       routerLinkActive="active"
       [routerLinkActiveOptions]="{exact: true}">
       <div class="add-job"
-        (click)="toggleForm()">
+        (click)="toggleForm($event)">
       </div>
     </a>
     <a routerLink="/about"
@@ -14,7 +14,7 @@
       routerLinkActive="active"></a>
   </nav>
   <div id="form-mask"
-    (click)="toggleForm()"
+    (click)="toggleForm($event)"
     [ngClass]="{'active': showForm}">
   </div>
   <app-analysis-form id="add-job-form"
