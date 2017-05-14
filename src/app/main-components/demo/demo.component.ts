@@ -90,13 +90,13 @@ export class DemoComponent implements OnInit {
   formatMessage(item: { message: string, analysis: { problem: string, solution: string } }) {
     const problemIndex = item.message.indexOf(item.analysis.problem);
     let message = '';
-    if (problemIndex > -1) {
+    if (problemIndex > -1 && item.analysis.problem !== '') {
       message = item.message.substring(0, problemIndex) +
         '<strong class="problem">' + item.analysis.problem +
         '</strong>' + item.message.substring(problemIndex + item.analysis.problem.length);
     }
     const solutionIndex = message.indexOf(item.analysis.solution);
-    if (solutionIndex > -1) {
+    if (solutionIndex > -1 && item.analysis.solution !== '') {
       message = message.substring(0, solutionIndex) +
         '<strong class="solution">' + item.analysis.solution +
         '</strong>' + message.substring(solutionIndex + item.analysis.solution.length);
