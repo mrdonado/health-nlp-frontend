@@ -87,21 +87,27 @@ export class DemoComponent implements OnInit {
    * @param item An analyzed job item
    * @returns message string: the markup version of the problem.
    */
-  formatMessage(item: { message: string, analysis: { problem: string, solution: string } }) {
+  formatMessage(
+    item: {
+      message: string,
+      analysis: {
+        problem: string,
+        solution: string
+      }
+    }) {
     const problemIndex = item.message.indexOf(item.analysis.problem);
-    let message = '';
+    let message = item.message;
     if (problemIndex > -1 && item.analysis.problem !== '') {
       message = item.message.substring(0, problemIndex) +
         '<strong class="problem">' + item.analysis.problem +
         '</strong>' + item.message.substring(problemIndex + item.analysis.problem.length);
     }
     const solutionIndex = message.indexOf(item.analysis.solution);
-    if (solutionIndex > -1 && item.analysis.solution !== '') {
+    if (solutionIndex > -1) {
       message = message.substring(0, solutionIndex) +
         '<strong class="solution">' + item.analysis.solution +
         '</strong>' + message.substring(solutionIndex + item.analysis.solution.length);
     }
-    // If no problem and no solution have been found, the original message is returned
-    return message !== '' ? message : item.message;
+    return message;
   }
 }
