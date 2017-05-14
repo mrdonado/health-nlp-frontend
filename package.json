@@ -6,7 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build-zip": "ng build --aot --prod --base-href /experiments/health/; zip -r dist.zip dist",
+    "build-zip": "ng build --aot --prod --base-href /health/; zip -r dist.zip dist",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
