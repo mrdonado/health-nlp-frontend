@@ -1,9 +1,11 @@
 <div id="demo-page-wrapper">
   <app-spinner *ngIf="emptyList"></app-spinner>
-  <div *ngIf="!emptyList" id="analysis-section">
+  <div *ngIf="!emptyList"
+    id="analysis-section">
     <ul id="analysis-list">
       <!-- Analysis Item -->
-      <li class="analysis-item" *ngFor="let item of analysis | async | reverse">
+      <li class="analysis-item"
+        *ngFor="let item of analysis | async | reverse">
         <span class="date-and-query">
           <i class="source" [ngClass]="item.source"></i>
           {{item.source}} - {{item.created_at}} <span *ngIf="item.query">- Query: "{{item.query}}"</span>
@@ -14,18 +16,20 @@
             <span class="description" title="{{item.user_description}}">{{item.user_description}}</span>
           </span>
         </div>
-        <div class="message" [innerHTML]="formatMessage(item)">
+        <div class="message"
+          [innerHTML]="formatMessage(item)">
           <!--&ldquo;{{item.message}}&bdquo;-->
         </div>
         <div class="user-analysis">
-          <span>
-            <span class="title" [ngClass]="{'positive': item.analysis.health_related}">User Analysis: </span> {{item.analysis.health_related
-          ? item.analysis.profile : 'not health related'}}
+          <span [ngClass]="{'positive': item.analysis.health_related}">
+            <span class="title">User Analysis: </span> {{item.analysis.health_related ? item.analysis.profile
+          : 'not health related'}}
           </span>
         </div>
       </li>
       <!-- End of Analysis Item -->
-      <li class="more-results-btn" (click)="moreResults()">
+      <li class="more-results-btn"
+        (click)="moreResults()">
         Show more
       </li>
     </ul>
