@@ -31,7 +31,7 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     showguides="true"
+     showguides="false"
      inkscape:guide-bbox="true"
      inkscape:window-width="1600"
      inkscape:window-height="876"
@@ -115,15 +115,15 @@
          sodipodi:role="line">scope</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:16.875px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="155.47781"
-       y="253.29112"
+       style="font-style:normal;font-weight:normal;font-size:17.71875px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="152.70564"
+       y="253.81068"
        id="text4156"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="155.47781"
-         y="253.29112"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.375px;font-family:Laksaman;-inkscape-font-specification:Laksaman"
+         x="152.70564"
+         y="253.81068"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.99374962px;font-family:Laksaman;-inkscape-font-specification:Laksaman"
          id="tspan4311">Social media analytics on health</tspan></text>
     <text
        xml:space="preserve"
@@ -151,5 +151,35 @@
        x="-194.87335"
        y="419.66354"
        transform="matrix(-0.00739183,-0.99997268,0.99997268,-0.00739183,0,0)" />
+    <g
+       id="g4439"
+       transform="matrix(0.67635248,0,0,0.67635249,124.40922,21.923386)">
+      <rect
+         transform="scale(-1,-1)"
+         y="-297.27316"
+         x="-230.56732"
+         height="21.718279"
+         width="7.5761447"
+         id="rect4392-5-4"
+         style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:6, 1;stroke-dashoffset:6.3499999;stroke-opacity:1" />
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         y="-237.63838"
+         x="282.62595"
+         height="21.718279"
+         width="7.5761447"
+         id="rect4392-5-4-0"
+         style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:6, 1;stroke-dashoffset:6.3499999;stroke-opacity:1" />
+    </g>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:6,1;stroke-dashoffset:5.7"
+       d="m 277.79195,204.33914 0,22.98097"
+       id="path4386"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:6,1;stroke-dashoffset:6.35;stroke-opacity:1"
+       d="m 267.18535,215.6294 21.08693,0"
+       id="path4388"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>
