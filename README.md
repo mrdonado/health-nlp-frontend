@@ -12,13 +12,15 @@
 [david-dev-badge]: https://david-dm.org/fjrd84/health-nlp-frontend/dev-status.svg
 [david-dev-badge-url]: https://david-dm.org/fjrd84/health-nlp-frontend?type=dev
 
-# HealthNlpFrontend
+# HealthNlpFrontend (deprecated)
 
-This repository contains the frontend part of the ***health-nlp*** project.
+This repository contains the former Angular 2+ based frontend part of the ***health-nlp*** project. Now it's been replaced by [health-nlp-react](https://github.com/fjrd84/health-nlp-react).
+
+Note: it's not that I prefer react over angular or anything. I just wanted to get some experience with react and redux, and that's why I've rewritten it. You can compare both repositories if you want to see an example of the same application written in Angular 2 and React+Redux.
 
 The ***health-nlp*** project is an NLP (Natural Language Processing) demo composed by the following repositories:
 
-- [health-nlp-frontend](https://github.com/fjrd84/health-nlp-frontend): frontend part. It displays the results of the analysis (stored in firebase) and explains everything about the project. It is an Angular based web application.
+- [health-nlp-react](https://github.com/fjrd84/health-nlp-react): frontend part. It displays the results of the analysis (stored in firebase) and explains everything about the project. It is a react+redux web application.
 - [health-nlp-node](https://github.com/fjrd84/health-nlp-node): nodeJS/express backend for the health-nlp-angular frontend. It takes new job requests and sends them to the beanstalkd job queue.
 - [health-nlp-analysis](https://github.com/fjrd84/health-nlp-analysis) (this repository): it processes jobs from beanstalkd and sends the results to firebase. It is a Python project.
 
